@@ -8,9 +8,9 @@ def show_catalog(request):
     if sorting == 'name':
         phones = Phone.objects.order_by(sorting)
     elif sorting == 'min_price':
-        phones = Phone.objects.order_by('-price')
-    elif sorting == 'max_price':
         phones = Phone.objects.order_by('price')
+    elif sorting == 'max_price':
+        phones = Phone.objects.order_by('-price')
     else:
         phones = Phone.objects.all()
 
