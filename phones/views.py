@@ -22,9 +22,10 @@ def show_catalog(request):
 
 
 def show_product(request, slug):
-    phone = Phone.objects.get(slug=slug)
+    phones = Phone.objects.filter(slug=slug)
     template = 'product.html'
-    context = {
-        'phone': phone
-    }
+    for phone in phones:
+        context = {
+            'phone': phone
+        }
     return render(request, template, context)
